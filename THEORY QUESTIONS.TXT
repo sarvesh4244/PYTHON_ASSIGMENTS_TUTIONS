@@ -1,0 +1,44 @@
+How memory is managed in Python? 
+
+ANS:- Memory management in Python is handled by the Python interpreter itself, and it uses a combination of techniques to efficiently allocate and deallocate memory for objects. The core concepts of memory management in Python include:
+
+Reference Counting: Python uses a reference counting mechanism to keep track of how many references (pointers) exist to a particular object. When an object's reference count drops to zero, meaning there are no more references to it, the memory occupied by the object is automatically deallocated. This is the simplest form of memory management and helps in reclaiming memory quickly, but it might not handle circular references properly.
+
+Garbage Collection: In addition to reference counting, Python also employs a cyclic garbage collector to handle circular references, where a group of objects reference each other, preventing their reference counts from dropping to zero. The cyclic garbage collector identifies and clears such circular references to free up memory. This is particularly important to prevent memory leaks.
+
+Memory Pools: Python uses memory pools for small object allocation. Memory pools are pre-allocated blocks of memory that are divided into smaller fixed-size chunks. These chunks are used to store objects, and when an object is deallocated, the memory is returned to the pool for potential reuse.
+
+Dynamic Typing: Python is dynamically typed, which means that an object's type can change during its lifetime. This requires additional memory and memory management overhead to support these dynamic changes.
+
+Memory Fragmentation: Python's memory manager can potentially suffer from memory fragmentation over time, especially when there are frequent object allocations and deallocations of varying sizes. This can lead to inefficient memory utilization.
+
+Memory Profiling: Python provides tools and libraries for memory profiling, such as the sys.getsizeof() function and third-party libraries like pympler, which can help you understand memory usage and identify memory-hungry parts of your code.
+
+Memory Management Functions: The ctypes module in Python allows interaction with low-level memory management functions like malloc and free from the C library. However, using these functions is generally discouraged unless you have a specific need and a deep understanding of memory management.
+
+It's important to note that Python's memory management is abstracted from the programmer in most cases, and you don't need to explicitly allocate or deallocate memory as you would in languages like C or C++. The automatic memory management provided by Python allows for easier and more productive programming, but it's also important to be aware of memory usage patterns and potential pitfalls, especially in cases where memory efficiency is crucial.
+
+
+Q2-What is the purpose continue statement in python? 
+
+ANS-In Python, the continue statement is used within loops (such as for or while loops) to skip the rest of the current iteration and move on to the next iteration. When the continue statement is encountered, the remaining code inside the loop for the current iteration is skipped, and the loop proceeds with the next iteration, if any.
+
+The main purpose of the continue statement is to control the flow of the loop and potentially skip over certain parts of the loop's body based on a specific condition. This can be useful when you want to exclude certain elements or cases from being processed within the loop while continuing with the rest of the iterations.
+
+Here's a simple example to illustrate the use of the continue statement:
+
+python
+
+Example
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+for num in numbers:
+    if num % 2 == 0:
+        # Skip even numbers
+        continue
+    print(f"Processing odd number: {num}")
+
+
+
+
