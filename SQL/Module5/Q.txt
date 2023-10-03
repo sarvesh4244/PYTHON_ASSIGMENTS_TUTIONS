@@ -1,0 +1,62 @@
+Q1 What do you understand By Database?
+ans - A database is a collection of information that is organized and stored in a way that makes it easy to access, manage, and update.     Databases can store data of any type, including text, numbers, images, and more. Common examples of databases include customer information, employee data, product catalogs, financial records, and medical records.
+
+Q2 What is Normalization? 
+ans - Normalization is a process used to organize a database into tables and columns. It is the process of simplifying the design of a database by reducing redundant data and ensuring data dependencies make sense. Normalization typically involves dividing large tables into smaller ones and defining relationships between them using primary and foreign keys. This helps to minimize data redundancy and ensure data integrity.
+
+Q3 What is Difference between DBMS and RDBMS?
+ans - A Database Management System (DBMS) is a software application that interacts with the user, other applications, and the database itself to capture and analyze data. A Relational Database Management System (RDBMS) is a DBMS that uses the relational model to store and manage data.
+
+The main difference between a DBMS and RDBMS is that a DBMS is a general purpose software system that allows the definition, creation, querying, update, and administration of databases, while an RDBMS is a specific type of DBMS that uses the relational model for database management.
+
+Q4 What is MF Cod Rule of RDBMS Systems?
+ans - The MF Cod rule is a concept used in relational database management systems (RDBMS). It states that any relation must have a minimum set of attributes that uniquely identify each tuple (row) in the relation. This set of attributes is known as a candidate key.
+
+A candidate key is a minimal set of attributes that can uniquely identify each row in a relation. It is important to note that a candidate key is not necessarily the primary key of the relation, it is simply a set of attributes that could potentially be used as the primary key.
+
+The MF Cod rule states that if a relation does not have at least one candidate key, then it is not in third normal form. This means that the relation is not properly structured and should be modified in order to adhere to the rule.
+
+Q5 What do you understand By Data Redundancy? 
+ans - Data redundancy is a type of data structure where the same data is stored multiple times in the same database. This is done to ensure that the data is available if one of the copies is corrupted or lost. Data redundancy can be beneficial in some cases, as it can help increase the availability of the data, but it can also lead to data inconsistency and waste of storage space.
+
+Q6 What is DDL Interpreter?
+ans - A DDL Interpreter is a program used to interpret Data Definition Language (DDL) commands. DDL is a language used to create and modify database objects such as tables, views, and indexes. The DDL Interpreter parses and executes DDL commands, allowing users to create, modify, and delete database objects. The interpreter also provides a way for users to view the structure of their databases.
+
+Q7 What is DML Compiler in SQL?
+ans - DML Compiler is a component of the Structured Query Language (SQL) that is responsible for translating Data Manipulation Language (DML) statements into a format that can be understood by the database engine. DML statements are used to retrieve, insert, update, and delete data from a database. The DML Compiler parses the statement, checks for syntax and semantic errors, and then translates the statement into a series of instructions that can be executed by the database engine.
+
+Q8 What is SQL Key Constraints writing an Example of SQL Key Constraints
+ans - SQL Key Constraints are used to enforce data integrity in a database. They are used to define rules on the data columns of a table, ensuring that only valid data is inserted into the table.
+example of a SQL statement that creates a table with key constraints:
+
+CREATE TABLE Employees (
+    EmployeeID INT NOT NULL PRIMARY KEY,
+    LastName VARCHAR(255) NOT NULL,
+    FirstName VARCHAR(255) NOT NULL,
+    DepartmentID INT NOT NULL,
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID),
+    JobTitle VARCHAR(255) NOT NULL,
+    UNIQUE (LastName, FirstName),
+    CHECK (JobTitle IN ('Manager', 'Developer', 'Designer'))
+);
+
+Q9 What is save Point? How to create a save Point write a Query?
+ans - A savepoint is a point in a transaction to which you can roll back if you encounter a problem. A savepoint allows you to undo part of a transaction without having to undo the entire transaction.
+
+You can create a savepoint in a database using the following SQL statement:
+SAVEPOINT savepoint_name;
+
+Q10 What is trigger and how to create a Trigger in SQL?
+ans - A trigger is a special type of stored procedure in a database management system (DBMS) which is automatically executed when a specific event occurs. Triggers can be used to enforce data integrity, modify data values, and enforce complex business rules.
+
+To create a trigger in SQL, you must first create a trigger statement that defines the actions to be taken when the trigger is activated. This statement is followed by a trigger body which contains the actual code to be executed when the trigger is activated.
+
+The syntax for creating a trigger in SQL is as follows:
+
+CREATE TRIGGER <trigger_name>
+ON <table_name>
+FOR <event_type>
+AS
+BEGIN
+   -- trigger body
+END

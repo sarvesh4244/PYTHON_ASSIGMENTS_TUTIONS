@@ -1,0 +1,20 @@
+Task 1: 
+SELECT c.Country_name, c.Country_name_eng, c.Country_code, cu.Customer_name, cu.Customer_address, cu.Next_call_date 
+FROM country c
+LEFT JOIN city ci ON c.Country_id = ci.Country_id
+LEFT JOIN customer cu ON ci.City_id = cu.City_id;
+
+SELECT c.Country_name_eng,
+       ci.City_name,
+       cu.Customer_name
+FROM Country c
+LEFT JOIN city ci ON c.Country_id = ci.Country_id
+LEFT JOIN customer cu ON ci.City_id = cu.City_id;
+
+task 2:
+SELECT c.Country_name_eng, c.Country_code, cu.Customer_name, cu.Customer_address
+FROM country c
+LEFT JOIN city ci ON ci.Country_id = c.Country_id
+INNER JOIN customer cu ON cu.City_id = ci.City_id
+WHERE ci.Country_id IS NOT NULL
+ORDER BY c.Country_name_eng;
